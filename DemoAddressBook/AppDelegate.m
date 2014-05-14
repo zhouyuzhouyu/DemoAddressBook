@@ -21,6 +21,17 @@
     RootVC *vc = [[RootVC alloc] init];
     self.window.rootViewController = vc;
     
+#if 1
+    CFMutableStringRef str1 = CFStringCreateMutableCopy(NULL, 0, CFSTR("中国123"));
+    NSLog(@"%@",str1);
+    CFStringTransform(str1, NULL, kCFStringTransformMandarinLatin, NO);
+    NSLog(@"%@",str1);
+    CFStringTransform(str1, NULL, kCFStringTransformStripCombiningMarks, NO);
+    NSLog(@"%@",str1);
+    CFStringLowercase(str1, NULL);
+    NSLog(@"%@",str1);
+#endif
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
